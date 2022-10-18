@@ -40,7 +40,7 @@ func (g1 GeoPoint) Distance(g2 GeoPoint) float64 {
 //go:embed data.csv
 var data string
 
-var GeoPoints []GeoPoint
+var ProvinceCities []GeoPoint
 
 func init() {
 	r := csv.NewReader(strings.NewReader(data))
@@ -71,7 +71,7 @@ func init() {
 			log.Println(err)
 			continue
 		}
-		GeoPoints = append(GeoPoints, GeoPoint{
+		ProvinceCities = append(ProvinceCities, GeoPoint{
 			CountryCode:  countryCode,
 			ProvinceCode: provinceCode,
 			ProvinceName: provinceName,
@@ -83,18 +83,17 @@ func init() {
 }
 
 var (
-	ErrNotFoundGeoPoints        = errors.New("geo points not found")
-	ErrNotFoundtNearestGeoPoint = errors.New("nearest geo point not found")
+	ErrNotFoundProvinceCities = errors.New("not found province city data")
 )
 
-func GetNearestGeoPoint(lat, lon float64) (*GeoPoint, error) {
-	if len(GeoPoints) == 0 {
-		return nil, ErrNotFoundGeoPoints
+func GetNearestProvinceCity(lat, lon float64) (*GeoPoint, error) {
+	if len(ProvinceCities) == 0 {
+		return nil, ErrNotFoundProvinceCities
 	}
 	g1 := GeoPoint{Lat: lat, Lon: lon}
 	minDist := math.MaxFloat64
 	var nearest GeoPoint
-	for _, g2 := range GeoPoints {
+	for _, g2 := range ProvinceCities {
 		dist := g1.Distance(g2)
 		minDist = math.Min(minDist, dist)
 		if minDist == dist {

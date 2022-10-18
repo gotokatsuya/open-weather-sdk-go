@@ -6,7 +6,7 @@ import (
 	"testing"
 )
 
-func TestGetNearestGeoPoint(t *testing.T) {
+func TestGetNearestProvinceCity(t *testing.T) {
 	type args struct {
 		lat float64
 		lon float64
@@ -36,13 +36,13 @@ func TestGetNearestGeoPoint(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			got, err := GetNearestGeoPoint(tt.args.lat, tt.args.lon)
+			got, err := GetNearestProvinceCity(tt.args.lat, tt.args.lon)
 			if (err != nil) != tt.wantErr {
-				t.Errorf("GetNearestGeoPoint() error = %v, wantErr %v", err, tt.wantErr)
+				t.Errorf("GetNearestProvinceCity() error = %v, wantErr %v", err, tt.wantErr)
 				return
 			}
 			if !reflect.DeepEqual(got, tt.want) {
-				t.Errorf("GetNearestGeoPoint() = %v, want %v", got, tt.want)
+				t.Errorf("GetNearestProvinceCity() = %v, want %v", got, tt.want)
 			}
 		})
 	}

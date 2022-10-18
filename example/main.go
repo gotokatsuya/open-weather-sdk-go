@@ -17,8 +17,8 @@ func main() {
 		return
 	}
 	res, httpRes, err := cli.OneCall(context.Background(), &openweather.OneCallRequest{
-		Lat: data.GeoPoints[0].Lat,
-		Lon: data.GeoPoints[0].Lon,
+		Lat: data.ProvinceCities[0].Lat,
+		Lon: data.ProvinceCities[0].Lon,
 		Exclude: []string{
 			openweather.ExcludeMinutely,
 			openweather.ExcludeHourly,
