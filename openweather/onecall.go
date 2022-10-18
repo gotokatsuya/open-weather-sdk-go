@@ -40,9 +40,9 @@ type OneCallResponse struct {
 	Timezone       string  `json:"timezone"`
 	TimezoneOffset int     `json:"timezone_offset"`
 	Current        struct {
-		Dt         int     `json:"dt"`
-		Sunrise    int     `json:"sunrise"`
-		Sunset     int     `json:"sunset"`
+		Dt         int64   `json:"dt"`
+		Sunrise    int64   `json:"sunrise"`
+		Sunset     int64   `json:"sunset"`
 		Temp       float64 `json:"temp"`
 		FeelsLike  float64 `json:"feels_like"`
 		Pressure   int     `json:"pressure"`
@@ -62,11 +62,11 @@ type OneCallResponse struct {
 		} `json:"weather"`
 	} `json:"current"`
 	Minutely []struct {
-		Dt            int `json:"dt"`
-		Precipitation int `json:"precipitation"`
+		Dt            int64 `json:"dt"`
+		Precipitation int   `json:"precipitation"`
 	} `json:"minutely"`
 	Hourly []struct {
-		Dt         int     `json:"dt"`
+		Dt         int64   `json:"dt"`
 		Temp       float64 `json:"temp"`
 		FeelsLike  float64 `json:"feels_like"`
 		Pressure   int     `json:"pressure"`
@@ -87,11 +87,11 @@ type OneCallResponse struct {
 		Pop float64 `json:"pop"`
 	} `json:"hourly"`
 	Daily []struct {
-		Dt        int     `json:"dt"`
-		Sunrise   int     `json:"sunrise"`
-		Sunset    int     `json:"sunset"`
-		Moonrise  int     `json:"moonrise"`
-		Moonset   int     `json:"moonset"`
+		Dt        int64   `json:"dt"`
+		Sunrise   int64   `json:"sunrise"`
+		Sunset    int64   `json:"sunset"`
+		Moonrise  int64   `json:"moonrise"`
+		Moonset   int64   `json:"moonset"`
 		MoonPhase float64 `json:"moon_phase"`
 		Temp      struct {
 			Day   float64 `json:"day"`
@@ -127,8 +127,8 @@ type OneCallResponse struct {
 	Alerts []struct {
 		SenderName  string   `json:"sender_name"`
 		Event       string   `json:"event"`
-		Start       int      `json:"start"`
-		End         int      `json:"end"`
+		Start       int64    `json:"start"`
+		End         int64    `json:"end"`
 		Description string   `json:"description"`
 		Tags        []string `json:"tags"`
 	} `json:"alerts"`
