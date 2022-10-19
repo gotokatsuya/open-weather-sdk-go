@@ -45,7 +45,7 @@ type OneCallResponse struct {
 		Sunset     int64   `json:"sunset"`
 		Temp       float64 `json:"temp"`
 		FeelsLike  float64 `json:"feels_like"`
-		Pressure   int     `json:"pressure"`
+		Pressure   float64 `json:"pressure"`
 		Humidity   int     `json:"humidity"`
 		DewPoint   float64 `json:"dew_point"`
 		Uvi        float64 `json:"uvi"`
@@ -69,7 +69,7 @@ type OneCallResponse struct {
 		Dt         int64   `json:"dt"`
 		Temp       float64 `json:"temp"`
 		FeelsLike  float64 `json:"feels_like"`
-		Pressure   int     `json:"pressure"`
+		Pressure   float64 `json:"pressure"`
 		Humidity   int     `json:"humidity"`
 		DewPoint   float64 `json:"dew_point"`
 		Uvi        float64 `json:"uvi"`
@@ -107,7 +107,7 @@ type OneCallResponse struct {
 			Eve   float64 `json:"eve"`
 			Morn  float64 `json:"morn"`
 		} `json:"feels_like"`
-		Pressure  int     `json:"pressure"`
+		Pressure  float64 `json:"pressure"`
 		Humidity  int     `json:"humidity"`
 		DewPoint  float64 `json:"dew_point"`
 		WindSpeed float64 `json:"wind_speed"`
