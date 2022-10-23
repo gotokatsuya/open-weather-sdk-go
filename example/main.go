@@ -7,7 +7,6 @@ import (
 	"os"
 
 	"github.com/gotokatsuya/open-weather-sdk-go/openweather"
-	"github.com/gotokatsuya/open-weather-sdk-go/openweather/data"
 )
 
 func main() {
@@ -17,8 +16,8 @@ func main() {
 		return
 	}
 	res, httpRes, err := cli.OneCall(context.Background(), &openweather.OneCallRequest{
-		Lat: data.ProvinceCities[0].Lat,
-		Lon: data.ProvinceCities[0].Lon,
+		Lat: 35.68944,
+		Lon: 139.69167,
 		Exclude: []string{
 			openweather.ExcludeMinutely,
 			openweather.ExcludeHourly,
